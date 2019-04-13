@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'u_name','u_pass','role_id'
     ];
 
     /**
@@ -27,6 +27,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        'u_pass',
     ];
+
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
 }

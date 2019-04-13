@@ -1,2 +1,2 @@
-# lumen-blog
-Blog application using Lumen + jwt  (micro framework by Laravel)
+# lumen-blog-api
+Restful API blog using Lumen + jwt + auth  (micro framework by Laravel)

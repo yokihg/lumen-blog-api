@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
 
-    protected $fillable = ['seo_title','seo_desc','seo_keyword','title','description','user_id','category_id'];
+    protected $fillable = ['seo_title','seo_desc','seo_keyword','title','description','user_id','category_id','img'];
 
     protected $dates = [];
 

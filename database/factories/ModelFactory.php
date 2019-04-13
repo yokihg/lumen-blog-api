@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -10,10 +10,48 @@
 | database. Just tell the factory how a default model should look.
 |
 */
-
+/**
+ * Factory definition for model Role.
+ */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+    ];
+});
+
+
+
+/**
+ * Factory definition for model Category.
+ */
+$factory->define(Category::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
+
+/**
+ * Factory definition for model Post.
+ */
+$factory->define(Post::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
+
+/**
+ * Factory definition for model Tag.
+ */
+$factory->define(Tag::class, function ($faker) {
+    return [
+        // Fields here
+    ];
+});
+
+/**
+ * Factory definition for model Comment.
+ */
+$factory->define(Comment::class, function ($faker) {
+    return [
+        // Fields here
     ];
 });

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('seo_title',255);
             $table->string('seo_desc',500);
             $table->string('seo_keyword',500);
+            $table->string('img',255);
             $table->string('title',255);
             $table->text('description');
             $table->unsignedInteger('user_id');

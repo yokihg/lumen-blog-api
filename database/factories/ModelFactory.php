@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -14,7 +15,12 @@ use Illuminate\Support\Str;
  * Factory definition for model Role.
  */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+    $role = App\Role::inRandomOrder()->first();
     return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->email,
+        'password' => Hash::make('123456'),
+        'role_id' => $role->id
     ];
 });
 

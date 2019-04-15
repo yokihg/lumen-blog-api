@@ -21,9 +21,13 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
-
-// $app->withEloquent();
+$app->withFacades([
+    'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+    'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+  ]);
+$app->configure('auth');
+$app->configure('jwt');
+ $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -61,9 +65,11 @@ $app->singleton(
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+     'auth' => App\Http\Middleware\Authenticate::class,
+     'jwt.auth' => Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+     'jwt.refresh' => Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
+ ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -77,9 +83,9 @@ $app->singleton(
 */
 
  $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
-
+ $app->register(App\Providers\AuthServiceProvider::class);
+ $app->register(App\Providers\EventServiceProvider::class);
+ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
